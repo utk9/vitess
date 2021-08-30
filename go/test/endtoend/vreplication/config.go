@@ -10,7 +10,7 @@ create table orders(oid int, cid int, pid int, mname varchar(128), price int, qt
 create table order_seq(id int, next_id bigint, cache bigint, primary key(id)) comment 'vitess_sequence';
 create table customer2(cid int, name varbinary(128), typ enum('individual','soho','enterprise'), sport set('football','cricket','baseball'),ts timestamp not null default current_timestamp, primary key(cid));
 create table customer_seq2(id int, next_id bigint, cache bigint, primary key(id)) comment 'vitess_sequence';
-create table tenant(tenant_id binary(16), name varbinary(16), primary key (tenant_id));
+create table tenant(tenant_id binary(16), name varbinary(16), country_code char(3) collate utf8mb4_bin, primary key (tenant_id));
 `
 
 	initialProductVSchema = `
